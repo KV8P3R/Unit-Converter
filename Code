@@ -1,0 +1,90 @@
+def miles_to_meters():
+    miles = int(input("input amount of miles:"))
+    meters = miles * 1609
+    print("Amount of meters:", meters)
+    amount = meters
+
+    return meters
+
+def meters_to_miles():
+    meters = int(input("input amount of meters:"))
+    miles = meters // 1609
+    print("Amount of miles:", miles)
+    amount = miles
+
+    return miles
+
+def celsius_to_fahrenheit():
+    celsius = int(input("input amount of celsius:"))
+    fahrenheit = (celsius * 1.8) + 32
+    print("Amount of fahrenheit:", fahrenheit)
+    amount = fahrenheit
+
+    return fahrenheit
+
+def fahrenheit_to_celsius():
+    fahrenheit = int(input("input amount of fahrenheit:"))
+    celsius = (fahrenheit // 1.8) - 32
+    print("Amount of celsius:", celsius)
+    amount = celsius
+
+    return celsius
+
+def kilograms_to_pounds():
+    kilograms = int(input("input amount of kilograms:"))
+    pounds = kilograms * 2.2
+    print("Amount of pounds:", pounds)
+    amount = pounds
+
+    return pounds
+
+def pounds_to_kilograms():
+    kilograms = int(input("input amount of kilograms:"))
+    pounds = kilograms // 2.2
+    print("Amount of pounds:", pounds)
+    amount = pounds
+
+    return kilograms
+
+def main_menu():
+    log = ""
+
+    while True:
+        print("\n===MAIN MENU===")
+        print("1. miles to meters")
+        print("2. meters to miles")
+        print("3. celsius to fahrenheit")
+        print("4. fahrenheit to celsius")
+        print("5. kilograms to pounds")
+        print("6. pounds to kilograms")
+        print("0. see results")
+
+        choice = int(input("input your choice:"))
+
+        match choice:
+            case 1:
+                result = miles_to_meters()
+                log += f"miles to meters: {result}\n"
+            case 2:
+                result = meters_to_miles()
+                log += f"meters to miles: {result}\n"
+            case 3:
+                result = celsius_to_fahrenheit()
+                log += f"celsius to fahrenheit: {result}\n"
+            case 4:
+                result = fahrenheit_to_celsius()
+                log += f"fahrenheit to celsius: {result}\n"
+            case 5:
+                result = kilograms_to_pounds()
+                log += f"kilograms to pounds: {result}\n"
+            case 6:
+                result = pounds_to_kilograms()
+                log += f"pounds to kilograms: {result}\n"
+            case 0:
+                with open("results.txt", "w") as f:
+                    f.write(log)
+                print("Results saved. Exiting.")
+                break
+            case _:
+                print("Invalid choice, please try again.")
+main_menu()
